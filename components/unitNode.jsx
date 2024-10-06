@@ -2,7 +2,7 @@ import {Handle, Position} from '@xyflow/react'
 import menuIcon from './assets/Vector.svg'
 
 import axios from "axios"
-
+import { Settings } from 'lucide-react'
 import {useState} from 'react'
 
 //visit access point
@@ -70,7 +70,7 @@ function UnitNode({data}) {
 
                 <label>{`Unit ${data.name}`}</label>
                 <button id="setting-button" onClick={()=>console.log("setting")}>
-                    <img id = "gear" src = {menuIcon}/>
+                    <Settings className="translate-x-4 opacity-80" size={15}/>
                 </button>
             </div>
             <Handle type="source" position={Position.Right} isConnectable={isConnectable} />

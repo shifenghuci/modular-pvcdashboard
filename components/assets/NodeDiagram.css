@@ -117,11 +117,15 @@ button:focus-visible {
 .unit-node #setting-button {
   width: 50px;
   height: 20px;
-  flex-shrink: 0;
 
   position: fixed;
   right: 7px;
   top: 5.5px;
+
+  padding: 0px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
 
   border-radius: 4px;
   background: #535BF2;
@@ -175,5 +179,5 @@ button:focus-visible {
 }
 
 .react-flow {
-  border-radius: 20px;
+  border-radius: 10px;
 }

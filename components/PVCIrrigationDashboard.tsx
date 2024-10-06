@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Settings, Calendar, Activity, BarChart2, Droplet } from "lucide-react"
+import { Wrench, Calendar, Activity, BarChart2, Droplet } from "lucide-react"
 import dynamic from 'next/dynamic'
 import NodeDiagram from './NodeDiagram.jsx'
 
@@ -9,9 +9,9 @@ import NodeDiagram from './NodeDiagram.jsx'
 export default function PVCIrrigationDashboard() {
   const [systemOn, setSystemOn] = useState(false)
   const [autoMode, setAutoMode] = useState(true)
-  const [waterLevel, setWaterLevel] = useState(65) // Example water level
+  const [waterLevel, setWaterLevel] = useState(9) // Example water level
 
-  const isPipeFilled = waterLevel > 10 // Assuming pipe is considered filled if water level > 10%
+  const isTankFilled = waterLevel > 10 // Assuming pipe is considered filled if water level > 10%
 
   return (
     <div className="bg-gradient-to-br from-green-50 to-blue-50 p-4 md:p-6 lg:p-8 rounded-lg shadow-lg">
@@ -30,7 +30,7 @@ export default function PVCIrrigationDashboard() {
         <div className="bg-white shadow-lg rounded-lg border-t-4 border-blue-500 p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-gray-700">System Control Panel</h2>
-            <Settings className="h-5 w-5 text-blue-500" />
+            <Wrench className="h-5 w-5 text-blue-500" />
           </div>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -39,11 +39,10 @@ export default function PVCIrrigationDashboard() {
                 <span className={`px-2 py-1 rounded-full text-xs font-semibold ${systemOn ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"}`}>
                   {systemOn ? "ON" : "OFF"}
                 </span>
-                <button
-                  className={`w-12 h-6 rounded-full ${systemOn ? "bg-blue-600" : "bg-gray-300"} focus:outline-none`}
-                  onClick={() => setSystemOn(!systemOn)}
-                >
-                  <div className={`w-4 h-4 rounded-full bg-white shadow-md transform duration-300 ease-in-out ${systemOn ? "translate-x-6" : "translate-x-1"}`} />
+                <button className={`w-12 h-6 rounded-full flex items-center p-1 ${systemOn ? "bg-blue-600" : "bg-gray-300"} focus:outline-none`} onClick={() => setSystemOn(!systemOn)}>
+                  <div
+                    className={`w-4 h-4 rounded-full bg-white shadow-md transform duration-300 ease-in-out ${systemOn ? "translate-x-6" : "translate-x-0"}`}
+                  />
                 </button>
               </div>
             </div>
@@ -54,10 +53,10 @@ export default function PVCIrrigationDashboard() {
                   {autoMode ? "ON" : "OFF"}
                 </span>
                 <button
-                  className={`w-12 h-6 rounded-full ${autoMode ? "bg-blue-600" : "bg-gray-300"} focus:outline-none`}
+                  className={`w-12 h-6 rounded-full flex items-center p-1 ${autoMode ? "bg-blue-600" : "bg-gray-300"} focus:outline-none`}
                   onClick={() => setAutoMode(!autoMode)}
                 >
-                  <div className={`w-4 h-4 rounded-full bg-white shadow-md transform duration-300 ease-in-out ${autoMode ? "translate-x-6" : "translate-x-1"}`} />
+                  <div className={`w-4 h-4 rounded-full bg-white shadow-md transform duration-300 ease-in-out ${autoMode ? "translate-x-6" : "translate-x-0"}`} />
                 </button>
               </div>
             </div>
@@ -97,16 +96,16 @@ export default function PVCIrrigationDashboard() {
               </div>
             </div>
             <div className="flex justify-between items-center">
-              <span className="font-medium">Pipe Status:</span>
-              <span className={`px-2 py-1 rounded-full text-xs font-semibold ${isPipeFilled ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
-                {isPipeFilled ? "Filled" : "Not Filled"}
+              <span className="font-medium">Tank Status:</span>
+              <span className={`px-2 py-1 rounded-full text-xs font-semibold ${isTankFilled ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800 animate-bounce"}`}>
+                {isTankFilled ? "Filled" : "Not Filled"}
               </span>
             </div>
           </div>
         </div>
 
         {/* Node Diagram */}
-        <div className="col-span-1 md:col-span-3 bg-transparent shadow-lg rounded-lg">
+        <div className="col-span-1 md:col-span-3 bg-transparent shadow-xl rounded-lg">
           <div className="h-[400px]">
             <NodeDiagram />
           </div>

@@ -38,7 +38,7 @@ const NodeDiagram = () => {
       {
         id: '1',
         type: 'waterTank',
-        position: {x:160, y:-75},
+        position: {x:175, y:-75},
       },
       {
         id: '2_A',
@@ -132,6 +132,7 @@ const NodeDiagram = () => {
           nodesDraggable = {false}
           proOptions = {proOptions}
       >
+        <Controls />
       </ReactFlow>
     )
 }
