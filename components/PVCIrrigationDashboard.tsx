@@ -3,8 +3,7 @@
 import React, { useState } from 'react'
 import { Settings, Calendar, Activity, BarChart2, Droplet } from "lucide-react"
 import dynamic from 'next/dynamic'
-
-const NodeDiagram = dynamic(() => import('./NodeDiagram'), { ssr: false })
+import NodeDiagram from './NodeDiagram.jsx'
 
 
 export default function PVCIrrigationDashboard() {
@@ -107,21 +106,12 @@ export default function PVCIrrigationDashboard() {
         </div>
 
         {/* Node Diagram */}
-        <div className="col-span-1 md:col-span-3 bg-white shadow-lg rounded-lg p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-800">Node Diagram</h2>
-            <BarChart2 className="h-6 w-6 text-gray-600" />
-          </div>
+        <div className="col-span-1 md:col-span-3 bg-transparent shadow-lg rounded-lg">
           <div className="h-[400px]">
             <NodeDiagram />
           </div>
         </div>
       </div>
-
-      <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center">
-        <Settings className="h-5 w-5 mr-2" />
-        System Settings
-      </button>
     </div>
   )
 }
