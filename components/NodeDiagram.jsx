@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState} from 'react';
 import { ReactFlow, Controls } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -7,16 +7,6 @@ import UnitNode from './unitNode.jsx';
 
 
 import styles from './assets/NodeDiagram.css'
-function Statusbar() {
-  return (
-    <>
-      <div>
-        <label>Influx initiated: {} {'>>'} {}, stopping in {} seconds</label>
-        <label>Outflux initiated: {}</label>
-      </div>
-    </>
-  )
-}
 const waterBlue = '#ADD8E6'
 const NodeDiagram = () => {
     const default_edges = [

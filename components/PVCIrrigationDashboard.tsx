@@ -1,14 +1,13 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Wrench, Calendar, Activity, BarChart2, Droplet } from "lucide-react"
-import dynamic from 'next/dynamic'
+import { Wrench, Calendar, Activity, Droplet } from "lucide-react"
 import NodeDiagram from './NodeDiagram.jsx'
 
 export default function PVCIrrigationDashboard() {
   const [systemOn, setSystemOn] = useState(false)
   const [autoMode, setAutoMode] = useState(true)
-  const [waterLevel, setWaterLevel] = useState(9) // Example water level
+  const waterLevel = 9;
 
   const isTankFilled = waterLevel > 10 // Assuming pipe is considered filled if water level > 10%
 

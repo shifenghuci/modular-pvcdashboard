@@ -1,9 +1,7 @@
 import {Handle, Position} from '@xyflow/react'
-import menuIcon from './assets/Vector.svg'
 
 import axios from "axios"
 import { Settings } from 'lucide-react'
-import {useState} from 'react'
 
 //visit access point
 async function getWaterModuleData(id) {
