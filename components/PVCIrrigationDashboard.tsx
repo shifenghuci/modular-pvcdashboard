@@ -2,6 +2,10 @@
 
 import React, { useState } from 'react'
 import { Settings, Calendar, Activity, BarChart2, Droplet } from "lucide-react"
+import dynamic from 'next/dynamic'
+
+const NodeDiagram = dynamic(() => import('./NodeDiagram'), { ssr: false })
+
 
 export default function PVCIrrigationDashboard() {
   const [systemOn, setSystemOn] = useState(false)
@@ -16,7 +20,7 @@ export default function PVCIrrigationDashboard() {
         <div className="flex items-center">
           <Droplet className="h-10 w-10 text-blue-600 mr-4" />
           <div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-1">Modular Planter System</h1>
+            <h1 className="text-3xl font-bold text-gray-800 mb-1">Modular Planter PVC Dashboard</h1>
             <p className="text-sm text-gray-600 font-medium">Real-time Monitoring Dashboard</p>
           </div>
         </div>
@@ -102,14 +106,14 @@ export default function PVCIrrigationDashboard() {
           </div>
         </div>
 
-        {/* Huge Widget on the Bottom */}
+        {/* Node Diagram */}
         <div className="col-span-1 md:col-span-3 bg-white shadow-lg rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-800">Water Usage Overview</h2>
+            <h2 className="text-xl font-semibold text-gray-800">Node Diagram</h2>
             <BarChart2 className="h-6 w-6 text-gray-600" />
           </div>
-          <div className="h-[400px] bg-gray-100 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500">Water usage chart will be displayed here</p>
+          <div className="h-[400px]">
+            <NodeDiagram />
           </div>
         </div>
       </div>
